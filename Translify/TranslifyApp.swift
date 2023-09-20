@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct TranslifyApp: App {
+    
+    @ObservedObject var appState: AppState = AppState()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if appState.isLoggedIn {
+                MainView()
+            } else {
+                AuthView()
+                    .environmentObject(appState)
+            }
         }
     }
 }
