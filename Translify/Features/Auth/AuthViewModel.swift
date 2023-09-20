@@ -12,29 +12,23 @@ class AuthViewModel: ObservableObject {
     @Published var passwordText: String = ""
 
     @Published var isLoading = false
-    @Published var isPasswordVisible = false
-    @Published var userExists = false
 
     let authService = AuthService()
 
-    func authenticate(appState: AppState) {
+    func register(appState: AppState) {
         isLoading = true
 
         Task {
             do {
-                if isPasswordVisible {
-                    let result = try await authService.login(email: emailText, password: passwordText, userExisits: userExists)
-                    await MainActor.run(body: {
-                        guard let result = result else { return }
-                        // update app state
-                        appState.currentUser = result.user
-                    })
-                } else {
-                    userExists = try await authService.checkUserExists(email: emailText)
-                    isPasswordVisible = true
-                }
+                let result = try await authService.signUp(email: emailText, password: passwordText)
+                await MainActor.run(body: {
+                    guard let result = result else { return }
+                    // update app state
+                    appState.currentUser = result.user
+                })
 
-                isLoading = false
+                return isLoading = false
+
             } catch {
                 print(error)
                 await MainActor.run {
@@ -42,6 +36,42 @@ class AuthViewModel: ObservableObject {
                 }
             }
 
+        }
+
+
+    }
+
+    func login(appState: AppState) {
+        isLoading = true
+
+        Task {
+            do {
+                let result = try await authService.signIn(email: emailText, password: passwordText)
+                await MainActor.run(body: {
+                    guard let result = result else { return }
+                    // update app state
+                    appState.currentUser = result.user
+                })
+                return isLoading = false
+            } catch {
+                print(error)
+                await MainActor.run {
+                    isLoading = false
+                }
+            }
+        }
+    }
+
+    func logout (appState: AppState) {
+        if appState.isLoggedIn {
+            Task {
+                do {
+                    try authService.signOut()
+                    appState.currentUser = nil
+                } catch {
+                    print("Deu erro ao sair")
+                }
+            }
         }
     }
 }

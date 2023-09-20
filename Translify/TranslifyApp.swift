@@ -16,6 +16,7 @@ struct TranslifyApp: App {
         WindowGroup {
             if appState.isLoggedIn {
                 MainView()
+                    .environmentObject(appState)
             } else {
                 AuthView()
                     .environmentObject(appState)
