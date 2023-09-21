@@ -62,7 +62,7 @@ struct AuthView: View {
                     .padding()
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(8)
-                
+
                 Spacer()
 
                 if viewModel.isLoading {
@@ -83,10 +83,13 @@ struct AuthView: View {
                     }
                         .contentShape(Rectangle())
                 }
-                
+
                 NavigationLink {
                     RegisterView()
-                    
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarItems(leading: CustomBackButton())
+                        .navigationBarTitle("Criar conta", displayMode: .inline)
+
                 } label: {
                     Text("Criar conta")
                         .padding()
@@ -98,10 +101,10 @@ struct AuthView: View {
                         .cornerRadius(8)
                 }
 
+
             }
                 .padding()
                 .padding()
-                .background(Color("ui-background"))
 
         }
     }

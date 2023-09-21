@@ -105,6 +105,9 @@ struct RegisterView: View {
         }
             .padding()
             .padding()
-            .background(Color("ui-background"))
     }
+}
+
+#Preview {
+    RegisterView()
 }
