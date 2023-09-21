@@ -10,7 +10,8 @@
 		C212A8402ABAB6D30020920E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C212A83F2ABAB6D30020920E /* FirebaseAuth */; };
 		C212A8442ABAB6D30020920E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C212A8432ABAB6D30020920E /* FirebaseFirestore */; };
 		C212A8462ABAB6D30020920E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C212A8452ABAB6D30020920E /* FirebaseFirestoreSwift */; };
-		C212A84C2ABAB9260020920E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C212A84B2ABAB9260020920E /* GoogleService-Info.plist */; };
+		C26ED1FE2ABB81F100B4FB44 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26ED1FD2ABB81F100B4FB44 /* RegisterView.swift */; };
+		C2918AA52ABB902E00531B00 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2918AA42ABB902E00531B00 /* GoogleService-Info.plist */; };
 		C2C16A272ABA92FA009AF604 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C16A262ABA92FA009AF604 /* MainView.swift */; };
 		C2C16A292ABA9A84009AF604 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C16A282ABA9A84009AF604 /* AuthViewModel.swift */; };
 		C2C16A652ABAA9F7009AF604 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C16A642ABAA9F7009AF604 /* AuthService.swift */; };
@@ -22,12 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C212A84B2ABAB9260020920E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C26ED1FC2ABB566D00B4FB44 /* Translify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Translify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C26ED1FD2ABB81F100B4FB44 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		C2918AA42ABB902E00531B00 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2C16A262ABA92FA009AF604 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C2C16A282ABA9A84009AF604 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C2C16A642ABAA9F7009AF604 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C2C16A682ABAB155009AF604 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		C2E9866C2ABA64FB000809B4 /* Translify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Translify.app; path = "/Users/revogabe/www/Translify/build/Debug-iphoneos/Translify.app"; sourceTree = "<absolute>"; };
 		C2E9866F2ABA64FB000809B4 /* TranslifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslifyApp.swift; sourceTree = "<group>"; };
 		C2E986712ABA64FB000809B4 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		C2E986732ABA64FC000809B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,13 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				C2E9866E2ABA64FB000809B4 /* Translify */,
+				C26ED1FC2ABB566D00B4FB44 /* Translify.app */,
 			);
 			sourceTree = "<group>";
 		};
 		C2E9866E2ABA64FB000809B4 /* Translify */ = {
 			isa = PBXGroup;
 			children = (
-				C212A84B2ABAB9260020920E /* GoogleService-Info.plist */,
+				C2918AA42ABB902E00531B00 /* GoogleService-Info.plist */,
 				C2E9867D2ABA666E000809B4 /* Features */,
 				C2E9866F2ABA64FB000809B4 /* TranslifyApp.swift */,
 				C2C16A682ABAB155009AF604 /* AppState.swift */,
@@ -106,6 +109,7 @@
 			children = (
 				C2C16A282ABA9A84009AF604 /* AuthViewModel.swift */,
 				C2E986712ABA64FB000809B4 /* AuthView.swift */,
+				C26ED1FD2ABB81F100B4FB44 /* RegisterView.swift */,
 				C2C16A642ABAA9F7009AF604 /* AuthService.swift */,
 			);
 			path = Auth;
@@ -133,7 +137,7 @@
 				C212A8452ABAB6D30020920E /* FirebaseFirestoreSwift */,
 			);
 			productName = Translify;
-			productReference = C2E9866C2ABA64FB000809B4 /* Translify.app */;
+			productReference = C26ED1FC2ABB566D00B4FB44 /* Translify.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +183,7 @@
 			files = (
 				C2E986772ABA64FC000809B4 /* Preview Assets.xcassets in Resources */,
 				C2E986742ABA64FC000809B4 /* Assets.xcassets in Resources */,
-				C212A84C2ABAB9260020920E /* GoogleService-Info.plist in Resources */,
+				C2918AA52ABB902E00531B00 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +197,7 @@
 				C2C16A292ABA9A84009AF604 /* AuthViewModel.swift in Sources */,
 				C2E986722ABA64FB000809B4 /* AuthView.swift in Sources */,
 				C2C16A652ABAA9F7009AF604 /* AuthService.swift in Sources */,
+				C26ED1FE2ABB81F100B4FB44 /* RegisterView.swift in Sources */,
 				C2C16A692ABAB155009AF604 /* AppState.swift in Sources */,
 				C2C16A272ABA92FA009AF604 /* MainView.swift in Sources */,
 				C2E986702ABA64FB000809B4 /* TranslifyApp.swift in Sources */,

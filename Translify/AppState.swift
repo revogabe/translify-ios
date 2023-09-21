@@ -18,6 +18,10 @@ class AppState: ObservableObject {
         return currentUser != nil
     }
     
+    var userEmail: String? {
+            return currentUser?.email
+        }
+    
     init() {
         FirebaseApp.configure()
         

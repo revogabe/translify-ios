@@ -14,20 +14,29 @@ class AuthService {
     let db = Firestore.firestore()
 
     func checkUserExists(email: String) async throws -> Bool {
-        let documentSnapshot = db.collection("users").whereField("email", isEqualTo: email).count
-        let count = try await documentSnapshot.getAggregation(source: .server).count
+        let query = db.collection("users").whereField("email", isEqualTo: email)
+        let countQuery = query.count
+        let snapshot = try await countQuery.getAggregation(source: .server)
 
-        return Int(truncating: count) > 0
+        print(snapshot.count)
+        return Int(truncating: snapshot.count) > 0
     }
 
-    func login(email: String, password: String, userExisits: Bool) async throws -> AuthDataResult? {
+    func signIn(email: String, password: String) async throws -> AuthDataResult? {
 
         guard !password.isEmpty else { return nil }
 
-        if userExisits {
-            return try await Auth.auth().signIn(withEmail: email, password: password)
-        } else {
-            return try await Auth.auth().createUser(withEmail: email, password: password)
-        }
+        return try await Auth.auth().signIn(withEmail: email, password: password)
+    }
+    
+    func signUp(email: String, password: String) async throws -> AuthDataResult? {
+
+        guard !password.isEmpty else { return nil }
+
+        return try await Auth.auth().createUser(withEmail: email, password: password)
+    }
+
+    func signOut() throws {
+        try Auth.auth().signOut()
     }
 }
