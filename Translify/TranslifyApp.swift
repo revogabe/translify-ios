@@ -9,14 +9,16 @@ import SwiftUI
 
 @main
 struct TranslifyApp: App {
-    
+
     @ObservedObject var appState: AppState = AppState()
-    
+
     var body: some Scene {
         WindowGroup {
             if appState.isLoggedIn {
-                MainView()
-                    .environmentObject(appState)
+                NavigationStack(path: $appState.navigationPath) {
+                    MainView()
+                        .environmentObject(appState)
+                }
             } else {
                 AuthView()
                     .environmentObject(appState)
